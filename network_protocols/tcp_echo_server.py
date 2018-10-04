@@ -12,6 +12,7 @@ def listen():
             data = conn.recv(1024)
             if not data or data == b'close':
                 break
+            conn.send(data)
         conn.close()
 
 
