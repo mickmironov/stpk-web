@@ -12,7 +12,7 @@ def listen():
             data = conn.recv(1024)
             if not data or data == b'close':
                 break
-            conn.close()
+        conn.close()
 
 
 if __name__ == '__main__':
