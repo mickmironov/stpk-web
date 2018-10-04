@@ -22,7 +22,7 @@ def process_request(conn, addr):
 def listen():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind(('0.0.0.0', 2222))
-    s.listen()
+    s.listen(10)
 
     workers_count = 10
     workers_list = [
