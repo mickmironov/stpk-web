@@ -1,5 +1,7 @@
 def app(environ, start_response):
     response_headers = [('Content-type', 'text/plain')]
-    response_text = environ['QUERY_STRING'].replace('&', '\n')
-    start_response(response_text, response_headers)
-    return response_text
+    body = [
+        bytes(i + '\n', 'ascii') for i in environ['QUERY_STRING'].split('&')
+        ]
+    start_response('200 OK', response_headers)
+    return body
