@@ -1,4 +1,4 @@
-sudo -m pip install --upgrade pip setuptools
+sudo python -m pip install --upgrade pip setuptools
 sudo pip3 install gunicorn==17.5
 #sudo pip3 install --upgrade django
 sudo pip install --upgrade django
