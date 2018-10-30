@@ -1,5 +1,7 @@
+sudo -m pip install --upgrade pip setuptools
 sudo pip3 install gunicorn==17.5
-sudo pip3 install --upgrade django
+#sudo pip3 install --upgrade django
+sudo pip install --upgrade django
 sudo unlink /etc/nginx/sites-enabled/default
 sudo ln -sf /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/test.conf
 sudo /etc/init.d/nginx restart
