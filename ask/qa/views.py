@@ -3,7 +3,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.core.paginator import Paginator
 
 from qa.models import Question
-from qa.forms import AnswerForm
+from qa.forms import AnswerForm, AskForm
 
 
 def index(request):
@@ -65,3 +65,18 @@ def question(request, num):
                                              'form': form,
                                              'user': request.user,
                                              'session': request.session, })
+
+
+def ask(request):
+    if request.method == "POST":
+        form = AskForm(request.POST)
+        if form.is_valid():
+            form._user = request.user
+            post = form.save()
+            url = post.get_url()
+            return HttpResponseRedirect(url)
+    else:
+        form = AskForm()
+    return render(request, 'ask.html', {'form': form,
+                                        'user': request.user,
+                                        'session': request.session, })
