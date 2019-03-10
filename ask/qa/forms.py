@@ -23,3 +23,17 @@ class AnswerForm(forms.Form):
         answer.author_id = self._user.id
         answer.save()
         return answer
+
+
+class AskForm(forms.Form):
+    title = forms.CharField(max_length=100)
+    text = forms.CharField(widget=forms.Textarea)
+
+    def clean(self):
+        pass
+
+    def save(self):
+        question = Question(**self.cleaned_data)
+        question.author_id = self._user.id
+        question.save()
+        return question
