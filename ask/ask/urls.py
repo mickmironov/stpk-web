@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from qa.views import index, popular, question, ask
+from qa.views import index, popular, question, ask, signup, login_view
 
 urlpatterns = [
 
@@ -23,5 +23,7 @@ urlpatterns = [
     url(r'^popular/', popular),
     url(r'^question/(?P<num>\d+)/$', question),
     url(r'^ask/', ask),
+    url(r'^signup/', signup),
+    url(r'^login/', login_view),
 
 ]
